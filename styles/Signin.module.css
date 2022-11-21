@@ -1,0 +1,15 @@
+.label {
+    @apply flex flex-col gap-1 bg-slate-200/50 border p-3 rounded-md;
+}
+
+.label input {
+    @apply p-2 px-3 rounded-md bg-white outline-none;
+}
+
+.label p {
+    @apply font-medium text-slate-800 text-sm;
+}
+
+.submitBtn {
+    @apply outline-none p-3 bg-gray-800 hover:bg-gray-900 transition-all text-white rounded-md;
+}
