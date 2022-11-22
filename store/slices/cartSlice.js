@@ -3,41 +3,15 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   showCart: false,
-  itemsList: [
-    {
-      name: "Bread",
-      quantity: "2",
-      amount: "700",
-      imageUrl:
-        "/assets/milk-bread.webp",
-    },
-    {
-      name: "Tea",
-      quantity: "2",
-      amount: "700",
-      imageUrl:
-        "/assets/milk-bread.webp",
-    },
-    {
-      name: "Smt else",
-      quantity: "2",
-      amount: "700",
-      imageUrl:
-        "/assets/milk-bread.webp",
-    },
-  ],
+  itemsList: [],
 };
 
 const cartSlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
-        addToCart: (state, payload) => {
-            state.itemsList.push({
-              name: "New Item",
-              quantity: "2",
-              amount: "700",
-            });
+        addToCart: (state, action) => {
+            state.itemsList = [...state.itemsList, action.payload]
         },
         toggleCart: (state) => {
             state.showCart = !state.showCart

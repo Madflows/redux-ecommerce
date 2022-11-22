@@ -10,6 +10,8 @@ function NavBar() {
   const { toggleCart } = cartActions;
   const dispatch = useDispatch();
   const showCart = useSelector((state) => state.cart.showCart);
+  const cartItems = useSelector((state) => state.cart.itemsList);
+
 
   return (
     <nav className="p-4 py-[2rem] bg-yellow-500">
@@ -19,8 +21,13 @@ function NavBar() {
         </Link>
 
         <div className="flex items-center gap-2 relative">
-          <button className="text-lg p-3 bg-slate-100 hover:bg-slate-200 transition-all" onClick={() => dispatch(toggleCart())}>
+          <button className="text-lg p-3 relative bg-slate-100 hover:bg-slate-200 transition-all" onClick={() => dispatch(toggleCart())}>
             <HiShoppingCart />
+            {
+              cartItems.length > 0 && (
+                <span className="absolute -top-2 -right-3 h-5 w-5 text-xs grid place-items-center border rounded-full bg-orange-600 text-slate-50">{cartItems.length}</span>
+              )
+            }
           </button>
           <AnimatePresence>
             {showCart && (
@@ -28,7 +35,7 @@ function NavBar() {
                 initial={{ opacity: 0, scaleY: 0 }}
                 animate={{ opacity: 1, scaleY: 1 }}
                 exit={{ opacity: 0, scaleY: 0 }}
-                className="absolute top-[50px] right-[0] origin-top"
+                className="absolute top-[50px] z-50 right-[0] origin-top max-h-[50vh] scrollbar-modern overflow-y-auto"
               >
                 <Cart />
               </motion.div>

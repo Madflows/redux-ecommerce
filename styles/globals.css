@@ -18,3 +18,20 @@ a {
   box-sizing: border-box;
 }
 
+
+/* Loader */
+.loader {
+	height: 50px;
+	width: 50px;
+	color: #fff;
+	@apply animate-spin border-4 border-yellow-400 rounded-full border-l-slate-900 border-t-slate-900;
+}
+
+
+.scrollbar-modern::-webkit-scrollbar {
+  @apply w-4 border-none outline-none bg-white;
+}
+
+.scrollbar-modern::-webkit-scrollbar-thumb {
+  @apply w-4 rounded-md bg-slate-900;
+}

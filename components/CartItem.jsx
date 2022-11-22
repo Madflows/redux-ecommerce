@@ -5,11 +5,11 @@ export default function CartItem({item}) {
     <div className="flex items-start pt-8 pb-12">
       <img
         alt="{item.name}"
-        src={item.imageUrl}
+        src={item?.images[0]}
         className="h-16 w-16 rounded-lg object-cover"
       />
       <div className="ml-4">
-        <h3 className="text-sm">{item.name}</h3>
+        <h3 className="text-sm">{item.title}</h3>
         <dl className="mt-1 space-y-1 text-xs text-gray-500">
           <div>
             <dt className="inline">Size:</dt>
